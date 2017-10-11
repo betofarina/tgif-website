@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.3.0/mustache.js"></script>
+</head>
+
+<body class="container" onload="loaderFunction()">
+    <header class="col-sm-12">
+        <div class="header-div">
+            <img src="tgiflogo.png" class="img-responsive header-img" alt="the white house logo">
+            <h1 class="header-text">TGIF</h1>
+            <div class="header-email">
+                <img src="mail.png" alt="a mail" class="img-responsive email-img"> <a href="mailto:info@tgif.net">info@tgif.net</a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">TGIF</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li><a href="home-starter-page.html">Home</a></li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Congress 113<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="house-starter-page.html">House</a></li>
+                        <li class="active"><a href="#">Senate</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Attendance<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="house-attendance.html">House</a></li>
+                        <li><a href="senate-attendance.html">Senate</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Party Loyalty<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="house-loyalty.html">House</a></li>
+                        <li><a href="senate-loyalty.html">Senate</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div id="loader" class="col-sm-12">
+        <h3 class="text-center">Loading....</h3>
+        <div id="load"></div>
+    </div>
+    <div id="myDiv">
+
+        <div class="col-sm-12">
+            <div class="col-sm-8">
+
+                <h2>Senators</h2>
+                <p>First convened in 1789, the composition and powers of the Senate are established in Article One of the U.S. Constitution. Each state is represented by two senators, regardless of population, who serve staggered six-year terms. The Senate has several exclusive powers not granted to the House, including consenting to treaties as a precondition to their ratification and consenting to or confirming appointments of Cabinet secretaries, federal judges, other federal executive officials, military officers, regulatory officials, ambassadors, and other federal uniformed officers, as well as trial of federal officials impeached by the House.</p>
+            </div>
+        </div>
+        <div class="col-sm-12 filter-parent">
+            <div class="filter-left">
+                <label>Filter by Party: </label>
+                <input type="checkbox" name="Party" value="R"><span>Republican</span>
+                <input type="checkbox" name="Party" value="D"><span>Democrat</span>
+                <input type="checkbox" name="Party" value="I"><span>Independent</span>
+            </div>
+            <div class="filter-right">
+                <label>Filter by State: </label>
+                <select id="state-filter" class="filter"> 
+            
+                       <option value="">All</option>
+                    <option value="AL">Alabama</option>
+	<option value="AK">Alaska</option>
+	<option value="AZ">Arizona</option>
+	<option value="AR">Arkansas</option>
+	<option value="CA">California</option>
+	<option value="CO">Colorado</option>
+	<option value="CT">Connecticut</option>
+	<option value="DE">Delaware</option>
+	<option value="DC">District Of Columbia</option>
+	<option value="FL">Florida</option>
+	<option value="GA">Georgia</option>
+	<option value="HI">Hawaii</option>
+	<option value="ID">Idaho</option>
+	<option value="IL">Illinois</option>
+	<option value="IN">Indiana</option>
+	<option value="IA">Iowa</option>
+	<option value="KS">Kansas</option>
+	<option value="KY">Kentucky</option>
+	<option value="LA">Louisiana</option>
+	<option value="ME">Maine</option>
+	<option value="MD">Maryland</option>
+	<option value="MA">Massachusetts</option>
+	<option value="MI">Michigan</option>
+	<option value="MN">Minnesota</option>
+	<option value="MS">Mississippi</option>
+	<option value="MO">Missouri</option>
+	<option value="MT">Montana</option>
+	<option value="NE">Nebraska</option>
+	<option value="NV">Nevada</option>
+	<option value="NH">New Hampshire</option>
+	<option value="NJ">New Jersey</option>
+	<option value="NM">New Mexico</option>
+	<option value="NY">New York</option>
+	<option value="NC">North Carolina</option>
+	<option value="ND">North Dakota</option>
+	<option value="OH">Ohio</option>
+    <option value="MP">Northern Mariana Islands</option>
+            </select>
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="table-responsive">
+                <table id="senate-data" class="table table-striped">
+                    <tbody id="tabla-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+<footer class="col-sm-12 foot">
+    <h4>&#169;2016 TGIF | All Rights Reserved</h4>
+</footer>
+<script>
+    var myVar;
+
+    function loaderFunction() {
+        myVar = setTimeout(showPage, 4000);
+    }
+
+    function showPage() {
+        document.getElementById("loader").style.display = "none";
+        document.getElementById("myDiv").style.display = "block";
+    }
+</script>
+<script src="js/pro-congress-113-senate.js"></script>
+<script src="js/main.js"></script>
+
+
+
+</html>
